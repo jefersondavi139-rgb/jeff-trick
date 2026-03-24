@@ -14,11 +14,12 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Gradle
-        run: gradle assembleDebug
+        # O comando abaixo entra na pasta 'app' antes de rodar o build
+        run: gradle assembleDebug -p app
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: jeff-trick-apk
-          path: "**/*.apk"
+          path: "app/build/outputs/apk/debug/*.apk"
           
