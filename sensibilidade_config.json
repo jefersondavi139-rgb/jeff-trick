@@ -1,0 +1,97 @@
+{
+  "_comentario": "JEFF TRICK — Presets de Calibragem para Free Fire (Redmi 15C / HyperOS)",
+  "_versao": "1.0",
+  "_dispositivo": "Redmi 15C | Android 13/14 | HyperOS",
+
+  "modo_celular": {
+    "nome": "MODO CELULAR",
+    "descricao": "Otimiza o Touch Sampling Rate e ajusta a escala de DPI para máxima velocidade de resposta no Android/Redmi.",
+    "comandos_shell": [
+      "settings put system pointer_speed 6",
+      "device_config put runtime_native_boot smoothness_strategy 1",
+      "settings put global window_animation_scale 0",
+      "settings put global transition_animation_scale 0",
+      "settings put global animator_duration_scale 0",
+      "settings put secure touch_blocking_period 0",
+      "settings put secure tap_duration_threshold 0"
+    ],
+    "avisos": [
+      "Ajuste manual recomendado: DPI do celular em 620",
+      "Reinicie o jogo após aplicar para ativar as mudanças de DPI"
+    ],
+    "calibragem": {
+      "jitter_threshold_ms":  10,
+      "y_axis_multiplier":    1.3,
+      "smooth_interpolation": 0.40,
+      "polling_rate_hz":      180,
+      "dead_zone_pixels":     3
+    }
+  },
+
+  "modo_mobilador": {
+    "nome": "MODO MOBILADOR",
+    "descricao": "Filtra o Mouse Polling Rate via Bluetooth/USB para remover o delay de entrada e sincronizar o mapeamento de teclas.",
+    "comandos_shell": [
+      "settings put system pointer_speed 7",
+      "settings put secure long_press_timeout 140",
+      "settings put secure multi_press_timeout 140",
+      "device_config put runtime_native_boot touch_debounce_time 0",
+      "settings put global window_animation_scale 0",
+      "settings put global transition_animation_scale 0",
+      "settings put global animator_duration_scale 0"
+    ],
+    "avisos": [
+      "Ajuste no mapeador: Sensibilidade Vertical (Y) 1.5x maior que a Horizontal (X)",
+      "Configurar o mouse físico para polling rate máximo (1000Hz ou mais)"
+    ],
+    "calibragem": {
+      "jitter_threshold_ms":  6,
+      "y_axis_multiplier":    1.5,
+      "smooth_interpolation": 0.30,
+      "polling_rate_hz":      1000,
+      "dead_zone_pixels":     1
+    }
+  },
+
+  "modo_aim": {
+    "nome": "MODO AIM",
+    "descricao": "Ativa os algoritmos de estabilização de mira e ajuste de precisão para o eixo Y (subida de capa).",
+    "comandos_shell": [
+      "settings put secure long_press_timeout 125",
+      "settings put secure tap_duration_threshold 0",
+      "settings put secure touch_blocking_period 0",
+      "device_config put runtime_native_boot touch_debounce_time 0",
+      "settings put system pointer_speed 7",
+      "device_config put runtime_native_boot smoothness_strategy 1"
+    ],
+    "avisos": [
+      "Este modo é otimizado para controle de recuo — use em combinação com o MODO MOBILADOR",
+      "Recomendado: desativar estabilização de giroscópio nas configurações do Free Fire"
+    ],
+    "calibragem": {
+      "jitter_threshold_ms":  8,
+      "y_axis_multiplier":    1.5,
+      "smooth_interpolation": 0.35,
+      "polling_rate_hz":      240,
+      "dead_zone_pixels":     2
+    }
+  },
+
+  "stealth": {
+    "flag_secure_enabled":         true,
+    "ocultar_de_gravacao":         true,
+    "ocultar_de_screenshot":       true,
+    "camada_renderizacao":         "TYPE_APPLICATION_OVERLAY",
+    "descricao": "Configurações do módulo Stealth. FLAG_SECURE é aplicado via WindowManager para tornar o overlay invisível para softwares de captura."
+  },
+
+  "ui": {
+    "cor_borda_neon":   "#00FFFF",
+    "cor_fundo":        "#1A1A1A",
+    "opacidade_fundo":  0.85,
+    "cor_ativo":        "#39FF14",
+    "formato":          "circular",
+    "drag_habilitado":  true,
+    "colapsavel":       true
+  }
+}
